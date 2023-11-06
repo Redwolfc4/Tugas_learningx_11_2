@@ -7,9 +7,9 @@ from flask import (
     jsonify                   
 )
 from bson import ObjectId
+from dotenv import load_dotenv
 import os
 from os.path import join, dirname
-from dotenv import load_dotenv
 from pymongo import MongoClient
 import requests
 from datetime import datetime
@@ -17,12 +17,9 @@ from datetime import datetime
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-
-uri = os.environ.get('MONGODB')
-db_name = os.environ.get('DB_NAME')
-
+uri = os.environ.get('MONGODB_URI')
 client = MongoClient(uri)
-db = client[db_name]
+db = client[os.environ.get('DB_NAME')]
 
 
 app = Flask(__name__)
@@ -43,8 +40,7 @@ def main():
 
 @app.route("/detail/<keyword>")
 def detail(keyword):
-    api_key_dictionary = os.environ.get("KEY_API")
-    print(f'api = {api_key_dictionary}')
+    api_key_dictionary = 'b1e3f9b2-f099-403b-8c8b-3e8ea803a006'
     url = f'https://www.dictionaryapi.com/api/v3/references/collegiate/json/{keyword}?key={api_key_dictionary}'
     
     r = requests.get(url)
