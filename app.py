@@ -14,11 +14,13 @@ from pymongo import MongoClient
 import requests
 from datetime import datetime
 
-
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 
 uri = os.environ.get('MONGODB')
 db_name = os.environ.get('DB_NAME')
+
 client = MongoClient(uri)
 db = client[db_name]
 
@@ -41,7 +43,8 @@ def main():
 
 @app.route("/detail/<keyword>")
 def detail(keyword):
-    api_key_dictionary = 'b1e3f9b2-f099-403b-8c8b-3e8ea803a006'
+    api_key_dictionary = os.environ.get("KEY_API")
+    print(f'api = {api_key_dictionary}')
     url = f'https://www.dictionaryapi.com/api/v3/references/collegiate/json/{keyword}?key={api_key_dictionary}'
     
     r = requests.get(url)
