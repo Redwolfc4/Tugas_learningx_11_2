@@ -7,7 +7,7 @@ Flask
 itsdangerous
 Jinja2
 MarkupSafe
-packagingpymongo
+pymongo
 python-dotenv
 requests
 Werkzeug
