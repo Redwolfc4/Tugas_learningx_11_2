@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Document Kholik\kholik\MSIb-Learning-x\self learning 10\jinja2\project03\Env
+set VIRTUAL_ENV=D:\github\Tugas_learningx_11_2\Env
 
 if not defined PROMPT set PROMPT=$P$G
 

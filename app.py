@@ -7,14 +7,20 @@ from flask import (
     jsonify                   
 )
 from bson import ObjectId
-
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
 from pymongo import MongoClient
 import requests
 from datetime import datetime
 
-uri = "mongodb+srv://admin:admin@cluster0.hq5csff.mongodb.net/?retryWrites=true&w=majority"
+
+
+
+uri = os.environ.get('MONGODB')
+db_name = os.environ.get('DB_NAME')
 client = MongoClient(uri)
-db = client.dbsparta_plus_week2
+db = client[db_name]
 
 
 app = Flask(__name__)

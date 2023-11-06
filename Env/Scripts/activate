@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Document Kholik\kholik\MSIb-Learning-x\self learning 10\jinja2\project03\Env"
+VIRTUAL_ENV="D:\github\Tugas_learningx_11_2\Env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
